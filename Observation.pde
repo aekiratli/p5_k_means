@@ -37,12 +37,13 @@ class Observation
       {
         distance = tempDistance;
         belongedSeed = i;
+        seed[i].seedId = i;
         R = seed[i].R;
         G = seed[i].G;
         B = seed[i].B;
       }
     }
-    println(belongedSeed);
+    //println(belongedSeed);
   }
   
 }

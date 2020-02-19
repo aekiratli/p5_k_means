@@ -1,9 +1,9 @@
-Observation[] observations = new Observation[1000];
+Observation[] observations = new Observation[8000];
 Seed[] seeds = new Seed[5];
 
 void setup()
 {
-  size(1000, 600);
+  fullScreen();  
   background(155);
 
   for (int i = 0; i < observations.length; i++) {
@@ -17,13 +17,20 @@ void setup()
   }
   delay(2000);
   /// debug ///
-    
 }
 void draw()
 {
+  background(155);
   for (int i = 0; i < observations.length; i++)
   {
     observations[i].GetNearestSeed(seeds);
     observations[i].Display();
   }
+  for (int i = 0; i < seeds.length; i++)
+  {
+    seeds[i].MeanOfCluster(observations);
+    seeds[i].ItarateSeed();
+    seeds[i].Display();
+  }
+  delay(100);
 }
